@@ -1,0 +1,17 @@
+Pour apprendre un SPN :
+
+spn_classification = learn_classifier(
+    train_data, 
+    Context(domains=dom, parametric_types=[Categorical]*65), 
+    learn_parametric, idx_label
+)
+
+avec train_data : tableau numpy des données (contenant la catégorie)
+    Context : contient les types des variables (entier, etc.) et les domaines de définition
+            je n'arrive pas à faire fonctionner la méthode add_domains pour des variables entières : les domaines renvoyés sont alors de différentes dimensions pour chaque variable,
+            ce qui ne permet pas de les rassembler dans un tableau numpy
+            Solution : définir soi-même les domaines au préalable
+
+            parametric_types : type de chaque variable (types définis dans spflow)
+    learn_parametric : fonction
+    idx_label : représente l'indice où se trouve la catégorie (label) associée pour chaque image 
