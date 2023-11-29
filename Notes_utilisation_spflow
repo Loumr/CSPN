@@ -15,3 +15,15 @@ avec train_data : tableau numpy des données (contenant la catégorie)
             parametric_types : type de chaque variable (types définis dans spflow)
     learn_parametric : fonction
     idx_label : représente l'indice où se trouve la catégorie (label) associée pour chaque image 
+
+
+Pour trouver une prédiction à partir d'un SPN :
+
+pred_im = mpe(spn_classification, test_data_no_class)
+
+mpe : une des fonctions qu'on peut appeler pour l'inférence
+spn_classification : le SPN
+test_data_no_class : tableau numpy où pour tous les vecteurs input, la case correspondant à la classe contient np.nan
+
+Retourne : le même tableau test_data_no_class avec les np.nan remplacés par les classes prédites par le SPN
+(on peut ensuite comparer ce tableau avec celui comprenant les classes effectives)
